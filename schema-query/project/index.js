@@ -20,6 +20,11 @@ const typeDefs = gql`
 `
 
 const resolvers = {
+  User: {
+    salary(parent) {
+      return parent.custom_salary;
+    }
+  },
   Query: {
     hello() {
       return 'Good Morning!';
@@ -33,7 +38,7 @@ const resolvers = {
         name: 'Ana da Web',
         email: 'anadaweb@email.com',
         age: 23,
-        salary: 1234.56,
+        custom_salary: 1234.56,
         vip: true
       }
     }
