@@ -24,6 +24,7 @@ const typeDefs = gql`
     currentTime: Date
     loggedUser: User
     featuredProduct: Product
+    megaSenaNumbers: [Int!]! 
   }
 `
 
@@ -68,8 +69,15 @@ const resolvers = {
       return {
         name: 'Product One',
         price: 100.50,
-        // discount: 0.15
+        discount: 0.15
       }
+    },
+
+    megaSenaNumbers() {
+      const ascending = (number, anotherNumber) => number - anotherNumber;
+      return Array(6).fill(0)
+                     .map(() => parseInt(Math.random() * 60 + 1))
+                     .sort(ascending);
     }
   }
 };
