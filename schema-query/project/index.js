@@ -18,6 +18,11 @@ const users = [
   }
 ]
 
+const profiles = [
+  { id: 1, name: 'Common' },
+  { id: 2, name: 'Administrator' }
+]
+
 const typeDefs = gql`
   scalar Date
 
@@ -28,6 +33,11 @@ const typeDefs = gql`
     age: Int
     salary: Float
     vip: Boolean
+  }
+
+  type Profile {
+    id: Int
+    name: String
   }
 
   type Product {
@@ -45,6 +55,8 @@ const typeDefs = gql`
     megaSenaNumbers: [Int!]! 
     users: [User]
     user(id: Int): User
+    profiles: [Profile]
+    profile(id: Int): Profile
   }
 `
 
@@ -107,6 +119,15 @@ const resolvers = {
     user(_, { id }) {
       const selectedUsers = users.filter(user => user.id === id);
       return selectedUsers ? selectedUsers[0] : null;
+    },
+
+    profiles() {
+      return profiles;
+    },
+
+    profile(_, { id }) {
+      const selectedProfiles = profiles.filter(profile => profile.id === id);
+      return selectedProfiles ? selectedProfiles[0] : null;
     }
   }
 };
