@@ -18,5 +18,15 @@ module.exports = {
     users.push(user);
 
     return user;
+  },
+
+  deleteUser(_, { id }) {
+    const userIndex = users.findIndex(user => user.id === id);
+
+    if (userIndex < 0) return null;
+
+    const excludedUsers = users.splice(userIndex, 1);
+
+    return excludedUsers ? excludedUsers[0] : null;
   }
 }
