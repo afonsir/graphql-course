@@ -5,17 +5,17 @@ enum UserState {
 }
 
 type User {
-  id: Int
-  name: String!
-  email: String!
-  age: Int
-  salary: Float
-  vip: Boolean
+  id:      Int
+  name:    String!
+  email:   String!
+  age:     Int
+  salary:  Float
+  vip:     Boolean
   profile: Profile
-  status: UserState
+  status:  UserState
 }
 
 type Profile {
-  id: Int
+  id:   Int
   name: String
 }
