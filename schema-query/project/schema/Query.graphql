@@ -1,11 +1,11 @@
 type Query {
-  hello: String
-  currentTime: Date
-  loggedUser: User
-  featuredProduct: Product
-  megaSenaNumbers: [Int!]!
-  users: [User]
-  user(id: Int): User
-  profiles: [Profile]
+  hello:            String
+  currentTime:      Date
+  loggedUser:       User
+  featuredProduct:  Product
+  megaSenaNumbers:  [Int!]!
+  users:            [User]
+  user(id: Int):    User
+  profiles:         [Profile]
   profile(id: Int): Profile
 }
