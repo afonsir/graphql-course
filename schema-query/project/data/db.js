@@ -1,20 +1,26 @@
+let id = 1;
+
+function nextId() {
+  return id++;
+}
+
 const users = [
   {
-    id: 1,
+    id: nextId(),
     name: 'Jim Halpert',
     email: 'jim.halpert@email.com',
     status: 'ACTIVE',
     age: 33
   },
   {
-    id: 2,
+    id: nextId(),
     name: 'Pam Beesly',
     email: 'pam.beesly@email.com',
     status: 'INACTIVE',
     age: 30
   },
   {
-    id: 3,
+    id: nextId(),
     name: 'Michael Scott',
     email: 'michael.scott@email.com',
     status: 'BLOCKED',
@@ -27,4 +33,8 @@ const profiles = [
   { id: 2, name: 'Administrator' }
 ]
 
-module.exports = { users, profiles };
+module.exports = {
+  users,
+  profiles,
+  nextId
+};
