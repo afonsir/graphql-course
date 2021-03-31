@@ -28,5 +28,17 @@ module.exports = {
     const excludedUsers = users.splice(userIndex, 1);
 
     return excludedUsers ? excludedUsers[0] : null;
+  },
+
+  updateUser(_, args) {
+    const userIndex = users.findIndex(user => user.id === args.id);
+
+    if (userIndex < 0) return null;
+
+    const user = {...users[userIndex], ...args};
+
+    users.splice(userIndex, 1, user);
+
+    return user;
   }
 }
