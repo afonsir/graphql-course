@@ -3,7 +3,7 @@ type Mutation {
     data: UserInput!
   ): User!
 
-  deleteUser(id: Int!): User
+  deleteUser(filter: UserFilter): User
 
   updateUser(
     id:    Int!
