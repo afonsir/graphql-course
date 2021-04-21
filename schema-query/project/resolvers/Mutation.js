@@ -1,8 +1,8 @@
 const { users, nextId } = require('../data/db');
 
 module.exports = {
-  createUser(_, args) {
-    const emailExists = users.some(user => user.email === args.email);
+  createUser(_, { data }) {
+    const emailExists = users.some(user => user.email === data.email);
 
     if (emailExists) {
       throw new Error('Email already exists!');
@@ -10,7 +10,7 @@ module.exports = {
 
     const user = {
       id: nextId(),
-      ...args,
+      ...data,
       profile_id: 1,
       status: 'ACTIVE'
     };
@@ -35,7 +35,7 @@ module.exports = {
 
     if (userIndex < 0) return null;
 
-    const user = {...users[userIndex], ...args};
+    const user = { ...users[userIndex], ...args };
 
     users.splice(userIndex, 1, user);
 

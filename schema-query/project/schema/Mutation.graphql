@@ -1,8 +1,6 @@
 type Mutation {
   createUser(
-    name:  String,
-    email: String,
-    age:   Int
+    data: UserInput!
   ): User!
 
   deleteUser(id: Int!): User

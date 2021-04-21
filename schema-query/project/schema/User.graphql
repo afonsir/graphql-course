@@ -15,6 +15,12 @@ type User {
   status:  UserState
 }
 
+input UserInput {
+  name:  String
+  email: String
+  age:   Int
+}
+
 type Profile {
   id:   Int
   name: String
