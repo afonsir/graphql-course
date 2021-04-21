@@ -1,0 +1,13 @@
+type Profile {
+  id:   Int
+  name: String
+}
+
+input ProfileInput {
+  name: String
+}
+
+input ProfileFilter {
+  id:   Int
+  name: String
+}
