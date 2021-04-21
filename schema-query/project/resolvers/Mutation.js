@@ -44,12 +44,12 @@ module.exports = {
     return excludedUsers ? excludedUsers[0] : null;
   },
 
-  updateUser(_, args) {
-    const userIndex = users.findIndex(user => user.id === args.id);
+  updateUser(_, { filter, data }) {
+    const userIndex = findUserIndex(filter);
 
     if (userIndex < 0) return null;
 
-    const user = { ...users[userIndex], ...args };
+    const user = { ...users[userIndex], ...data };
 
     users.splice(userIndex, 1, user);
 
